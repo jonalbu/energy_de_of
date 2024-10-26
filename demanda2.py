@@ -1,3 +1,5 @@
+
+import datetime as dt  
 import mysql.connector  # Importar el conector de MySQL
 import pandas as pd
 #import plost
@@ -7,23 +9,10 @@ import plotly.express as px
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
-DB_HOST = os.getenv('DB_HOST')
-DB_USER = os.getenv('DB_USER')
-DB_PASSWORD = os.getenv('DB_PASSWORD')
-DB_NAME = os.getenv('DB_NAME')
-DB_PORT=os.getenv('DB_PORT')
 
 try:
     # Establecer la conexión
-    conn = mysql.connector.connect(            
-            host=DB_HOST,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            database=DB_NAME,
-            port=DB_PORT
-        )
+    conn = mysql.connector.connect('mysql', type='sql')
     #st.write("Conexión exitosa a la base de datos.")
 
     st.set_page_config(layout = 'wide', initial_sidebar_state='expanded')
